@@ -42,3 +42,18 @@ def plot_mats(mats, cols=5, cmap=plt.get_cmap('gray'), size=16):
     plt.axis('off')
     plt.tight_layout()
     plt.show()
+
+def plot(I):
+    f, ax = plt.subplots(ncols=1, nrows=1)
+    f.set_size_inches(32, 16)
+    ax.imshow(I)
+    ax.axis('off')
+    plt.tight_layout()
+    plt.show()
+
+def imread(List, folder_file, ext='jpg'):
+    for i in range(1, 8):
+        I = cv2.imread(folder_file + str(i) + '.' + ext)
+        I = cv2.cvtColor(I, cv2.COLOR_BGR2RGB)
+        List.append(I)
+    return List
